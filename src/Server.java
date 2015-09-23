@@ -13,18 +13,6 @@ public class Server {
 
 	public static void main(String[] args) throws IOException {
 
-		/* Make sure the directory of the to-be-served file is correct */
-		if (args[0] == null) {
-			/* A directory wasn't given */
-			throw new IOException("Provide directory of to-be-served file!");
-		} else {
-			/* Check whether the given directory exists */
-			File givenDir = new File(args[0]);
-			if (!givenDir.exists()) {
-				throw new IOException("Provided directory does not exist!");
-			}
-		}
-
 		/* Start the ServerSocket */
 		ServerSocket ss = new ServerSocket(8080);
 		Socket s;
@@ -39,7 +27,7 @@ public class Server {
 
 			/* Connect to the socket */
 			s = ss.accept();
-			Runnable r = new ClientHandler(s, args[0]);
+			Runnable r = new ClientHandler(s);
 
 			/* Add new task to the threadpool */
 			threadpool.addToQueue(r);

@@ -10,19 +10,9 @@ class ClientHandler implements Runnable {
 
 	/* Connected client socket */
 	private Socket client;
-	/* Directory for the page to be served */
-	private String dir;
 
-	public ClientHandler(Socket client, String dir) {
+	public ClientHandler(Socket client) {
 		this.client = client;
-		
-		/* Make sure the directory doesn't end with a backslash */
-		if (dir.endsWith("/")) {
-			dir = dir.substring(0, dir.length() - 2);
-		}
-		
-		this.dir = dir;
-		System.out.println(this.dir);
 	}
 
 	@Override
@@ -43,7 +33,7 @@ class ClientHandler implements Runnable {
 				resp.write("\r\n".getBytes());
 
 				/* Read the requested file and then write the file to the response */
-				BufferedReader br = new BufferedReader(new FileReader(dir + req[1]));
+				BufferedReader br = new BufferedReader(new FileReader(req[1].substring(1)));
 				line = br.readLine();
 				while (line != null) {
 					resp.write((line + "\n").getBytes());
