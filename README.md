@@ -12,7 +12,9 @@ Import the project into Eclipse.<br>
 Click the green "Run" button or go to Run -> Run in the menu (on Mac).
 
 ### Get a page
-There is only one page that can be served. Type "http://localhost:8080/samplepage.html" into your browser. You should see "Hello World!" show up on your browser page.
+There is only one page that can be served. Type "http://localhost:8080/samplepage.html" into your browser. You should see "Hello World!" show up on your browser page.<br>
+If you would like to serve other pages, put them in the same directory as the samplepage.html, and type "http://localhost:8080/[your page name]" into a browser.
+
 
 ### Stop the server
 In the command line:<br>
