@@ -2,19 +2,24 @@
 Multi-threaded server with a threadpool
 
 ## Usage
+### Inputs and Outputs
+You will need to give an input to the program. The input is a local directory from where you would like the program to search from. For example, if I give "/Users/andreaowu/Desktop" as the input, the server will look in this directory for pages.
+
+
 ### Start the server
 In the command line:<br>
 javac Server.java<br>
-java Server<br>
+java Server [directory]<br>
 
 In Eclipse:<br>
 Import the project into Eclipse.<br>
-Click the green "Run" button or go to Run -> Run in the menu (on Mac).
+Click the dropdown arrow to the right of the green "Run" button and select "Run Configurations" *or* go to Run -> Run Configurations in the menu (on Mac).<br>
+After pulling up the Run Configurations box, click on the "Arguments" tab and type in your directory there.
 
 ### Get a page
-There is only one page that can be served. Type "http://localhost:8080/samplepage.html" into your browser. You should see "Hello World!" show up on your browser page.<br>
-If you would like to serve other pages, put them in the same directory as the samplepage.html, and type "http://localhost:8080/[your page name]" into a browser.
-
+Open a browser. Type in "localhost:8080/[name of page]". 
+For example, if I pass in the directory "/Users/andreaowu/Desktop" as the input and I put "samplepage.html" in that local directory, I will open a browser and type in "localhost:8080/samplepage.html".<br>
+The server will either return the page if it is found or a 404 not found error code to the client (browser in this case).
 
 ### Stop the server
 In the command line:<br>
